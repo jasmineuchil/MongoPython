@@ -3,7 +3,9 @@
 After completion of helm installation, validate if chart got installed successfully
 
 ``[root@p1213-bastion cecuser]# helm ls
+
 WARNING: Kubernetes configuration file is group-readable. This is insecure. Location: /root/.kube/config
+
 NAME                                    NAMESPACE       REVISION        UPDATED                                 STATUS          CHART                                APP VERSION
 test                                    jas             1               2021-05-18 00:59:07.383811905 -0400 EDT deployed        ibm-mongodb-enterprise-helm-0.1.0    4.4.0
 [root@p1213-bastion cecuser]# oc get po
@@ -13,7 +15,7 @@ test-ibm-mongodb-enterprise-helm-deployment-d6c8b784c-zlxkh   1/1     Running   
 
 
 Expose a node port for the application
-[root@p1213-bastion templates]# oc expose deployment test-ibm-mongodb-enterprise-helm-deployment --type=NodePort --name=test-ibm
+``[root@p1213-bastion templates]# oc expose deployment test-ibm-mongodb-enterprise-helm-deployment --type=NodePort --name=test-ibm
 service/test-ibm exposed
 [root@p1213-bastion templates]# oc get nodes
 NAME                                STATUS   ROLES           AGE   VERSION
@@ -21,12 +23,12 @@ p1213-master.p1213.cecc.ihost.com   Ready    master,worker   13d   v1.19.0+a5a09
 [root@p1213-bastion templates]# oc get svc
 NAME                                       TYPE           CLUSTER-IP       EXTERNAL-IP   PORT(S)                                                                                                     AGE
 test-ibm                                   NodePort       172.30.22.77     <none>        27017:31466/TCP                                                                                             14s
-test-ibm-mongodb-enterprise-helm-service   ClusterIP      172.30.78.82     <none>        27017/TCP                                                                                                   85m
+test-ibm-mongodb-enterprise-helm-service   ClusterIP      172.30.78.82     <none>        27017/TCP                                                                                                   85m``
 
 After exposing, run python script `pythoncode.py`
 
 To validate, login to the container
-[root@p1213-bastion cecuser]# oc get po
+``[root@p1213-bastion cecuser]# oc get po
 NAME                                                          READY   STATUS    RESTARTS   AGE
 test-ibm-mongodb-enterprise-helm-deployment-d6c8b784c-zlxkh   1/1     Running   0          111m
 [root@p1213-bastion cecuser]# oc rsh test-ibm-mongodb-enterprise-helm-deployment-d6c8b784c-zlxkh
@@ -48,6 +50,6 @@ The server generated these startup warnings when booting:
         2021-05-18T04:59:30.390+00:00:         minLockedMemoryBytes: 1048576
 ---
 MongoDB Enterprise >
-
+``
 
 To check server status run `ServerStatusResult.py` script
