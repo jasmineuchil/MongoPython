@@ -28,7 +28,7 @@ test-ibm                                   NodePort       172.30.22.77     <none
 test-ibm-mongodb-enterprise-helm-service   ClusterIP      172.30.78.82     <none>        27017/TCP                                                                                                   85m
 ```
 
-After exposing, run python script `pythoncode.py`
+After exposing, run python script `pythoncode.py` which will create a sample data
 
 To validate, login to the container
 ```
