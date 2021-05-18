@@ -65,4 +65,5 @@ MongoDB Enterprise >
 ```
 
 To check server status run `ServerStatusResult.py` script
+
 To check database list run `dblist.py` script
