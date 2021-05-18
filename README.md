@@ -36,7 +36,7 @@ git clone https://github.com/jasmineuchil/MongoPython
 cd MongoPython
 ```
 
-After exposing, run python script `pythoncode.py` which will create a sample data
+Run python script `pythoncode.py` which will create a sample data
 
 To validate, login to the container
 ```
