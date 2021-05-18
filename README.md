@@ -28,6 +28,14 @@ test-ibm                                   NodePort       172.30.22.77     <none
 test-ibm-mongodb-enterprise-helm-service   ClusterIP      172.30.78.82     <none>        27017/TCP                                                                                                   85m
 ```
 
+Git clone this repository on your server -
+
+```
+cd $HOME/
+git clone https://github.com/jasmineuchil/MongoPython
+cd MongoPython
+```
+
 After exposing, run python script `pythoncode.py` which will create a sample data
 
 To validate, login to the container
