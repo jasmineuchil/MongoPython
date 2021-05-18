@@ -35,6 +35,7 @@ cd $HOME/
 git clone https://github.com/jasmineuchil/MongoPython
 cd MongoPython
 ```
+After cloning the repository to your system, change hostname and port number in `pythoncode.py`
 
 Run python script `pythoncode.py` which will create a sample data
 
@@ -63,7 +64,10 @@ The server generated these startup warnings when booting:
 ---
 MongoDB Enterprise >
 ```
+## Server Status Result
 
 To check server status run `ServerStatusResult.py` script
+
+## Database list
 
 To check database list run `dblist.py` script
