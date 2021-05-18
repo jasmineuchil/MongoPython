@@ -2,14 +2,14 @@
 
 After completion of helm installation, validate if chart got installed successfully
 
-[root@p1213-bastion cecuser]# helm ls
+``[root@p1213-bastion cecuser]# helm ls
 WARNING: Kubernetes configuration file is group-readable. This is insecure. Location: /root/.kube/config
 NAME                                    NAMESPACE       REVISION        UPDATED                                 STATUS          CHART                                APP VERSION
 test                                    jas             1               2021-05-18 00:59:07.383811905 -0400 EDT deployed        ibm-mongodb-enterprise-helm-0.1.0    4.4.0
 [root@p1213-bastion cecuser]# oc get po
 NAME                                                          READY   STATUS    RESTARTS   AGE
 test-ibm-mongodb-enterprise-helm-deployment-d6c8b784c-zlxkh   1/1     Running   0          111m
-[root@p1213-bastion cecuser]#
+[root@p1213-bastion cecuser]#``
 
 
 Expose a node port for the application
