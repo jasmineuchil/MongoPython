@@ -35,7 +35,7 @@ cd $HOME/
 git clone https://github.com/jasmineuchil/MongoPython
 cd MongoPython
 ```
-After cloning the repository to your system, change hostname and port number in `pythoncode.py`
+After cloning the repository to your system, change hostname and port number in `.py` script
 
 Run python script `pythoncode.py` which will create a sample data
 
