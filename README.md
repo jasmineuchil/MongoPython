@@ -4,7 +4,7 @@
 
 For Helm installation please refer https://github.com/redhat-developer/redhat-helm-charts/tree/master/stable/ibm-mongodb-enterprise-helm
 
-After completion of helm installation, validate if chart got installed successfully
+After completion of helm installation, validate if chart got installed successfully:
 
 ```
 [root@p1213-bastion cecuser]# helm ls
