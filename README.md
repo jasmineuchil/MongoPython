@@ -1,6 +1,6 @@
 ## MongoPython
 
-#Helm installation
+# Helm installation
 
 For Helm installation please refer https://github.com/redhat-developer/redhat-helm-charts/tree/master/stable/ibm-mongodb-enterprise-helm
 
