@@ -38,7 +38,7 @@ cd $HOME/
 git clone https://github.com/jasmineuchil/MongoPython
 cd MongoPython
 ```
-After cloning the repository to your system, change hostname and port number for all three `.py` scripts
+After cloning the repository to your system, Update username, password, hostname and port number for all the `.py` scripts
 
 Run python script `pythoncode.py` which will create a sample data
 
@@ -118,4 +118,50 @@ To check database list run `dblist.py` script
 {'name': 'local', 'sizeOnDisk': 73728.0, 'empty': False}
 {'name': 'newdb', 'sizeOnDisk': 139264.0, 'empty': False}
 [root@p1213-bastion MongoPython]#
+```
+
+## You can perform create, read, update and delete operation by running below scripts
+
+To create database and add data, run create.py scripts
+```
+[root@p1213-bastion MongoPython]# python create.py
+Database created successfully
+```
+
+You can login to container to validate it:
+```
+[root@p1213-bastion cecuser]# oc rsh test-ibm-mongodb-enterprise-helm-deployment-d6c8b784c-zlxkh
+sh-4.4$ mongo -u myUserAdmin -p password
+...
+MongoDB Enterprise > show dbs
+admin         0.000GB
+business      0.000GB
+config        0.000GB
+local         0.000GB
+newdb         0.000GB
+newdatabase   0.000GB
+MongoDB Enterprise > use newdatabase
+switched to db newdatabase
+MongoDB Enterprise > show collections
+newcollection
+MongoDB Enterprise > db.newcollection.find().
+{ "_id" : ObjectId("60ab614b6790b2680fb869eb"), "name" : "Jas", "address" : "Canyon 123", "State" : "Karnataka", "Country" : "India" }
+```
+
+To read data, run read.py
+```
+[root@p1213-bastion MongoPython]# python read.py
+{'_id': ObjectId('60ab614b6790b2680fb869eb'), 'name': 'Jas', 'address': 'Canyon 123', 'State': 'Karnataka', 'Country': 'India'}
+```
+
+To update any data in existing database, run update.py
+```
+[root@p1213-bastion MongoPython]# python update.py
+{'_id': ObjectId('60ab614b6790b2680fb869eb'), 'name': 'Jas', 'address': 'Highway 37', 'State': 'Karnataka', 'Country': 'India'}
+{'_id': ObjectId('60ab614b6790b2680fb869eb'), 'name': 'Jas', 'address': 'Canyon 123', 'State': 'Karnataka', 'Country': 'India'}
+```
+For deletion, mention the database name in deletedatabase.py and run the script.
+```
+[root@p1213-bastion MongoPython]# python deletedatabase.py
+Database deleted
 ```
