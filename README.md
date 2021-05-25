@@ -40,6 +40,8 @@ cd MongoPython
 ```
 After cloning the repository to your system, Update username, password, hostname and port number for all the `.py` scripts
 
+To install pymongo, make sure you have installed python3 (along with PIP) and then `import pymongo`
+
 Run python script `pythoncode.py` which will create a sample data
 
 To validate, login to the container
@@ -85,7 +87,7 @@ MongoDB Enterprise >
 To check server status, run `ServerStatusResult.py` script
 
 ```
-[root@p1213-bastion MongoPython]# python serverstatusresult.py
+[root@p1213-bastion MongoPython]# python3 serverstatusresult.py
 {'asserts': {'msg': 0, 'regular': 0, 'rollovers': 0, 'user': 14, 'warning': 0},
  'connections': {'active': 2,
                  'available': 838856,
@@ -111,7 +113,7 @@ To check server status, run `ServerStatusResult.py` script
 
 To check database list run `dblist.py` script
 ```
-[root@p1213-bastion MongoPython]# python dblist.py
+[root@p1213-bastion MongoPython]# python3 dblist.py
 {'name': 'admin', 'sizeOnDisk': 167936.0, 'empty': False}
 {'name': 'business', 'sizeOnDisk': 73728.0, 'empty': False}
 {'name': 'config', 'sizeOnDisk': 36864.0, 'empty': False}
@@ -124,7 +126,7 @@ To check database list run `dblist.py` script
 
 To create database and add data, run create.py scripts
 ```
-[root@p1213-bastion MongoPython]# python create.py
+[root@p1213-bastion MongoPython]# python3 create.py
 Database created successfully
 ```
 
@@ -150,18 +152,18 @@ MongoDB Enterprise > db.newcollection.find().
 
 To read data, run read.py
 ```
-[root@p1213-bastion MongoPython]# python read.py
+[root@p1213-bastion MongoPython]# python3 read.py
 {'_id': ObjectId('60ab614b6790b2680fb869eb'), 'name': 'Jas', 'address': 'Canyon 123', 'State': 'Karnataka', 'Country': 'India'}
 ```
 
 To update any data in existing database, run update.py
 ```
-[root@p1213-bastion MongoPython]# python update.py
+[root@p1213-bastion MongoPython]# python3 update.py
 {'_id': ObjectId('60ab614b6790b2680fb869eb'), 'name': 'Jas', 'address': 'Highway 37', 'State': 'Karnataka', 'Country': 'India'}
 {'_id': ObjectId('60ab614b6790b2680fb869eb'), 'name': 'Jas', 'address': 'Canyon 123', 'State': 'Karnataka', 'Country': 'India'}
 ```
 For deletion, mention the database name in deletedatabase.py and run the script.
 ```
-[root@p1213-bastion MongoPython]# python deletedatabase.py
+[root@p1213-bastion MongoPython]# python3 deletedatabase.py
 Database deleted
 ```
