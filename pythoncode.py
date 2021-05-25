@@ -2,7 +2,7 @@ import pymongo
 from pymongo import MongoClient
 from random import randint
 #Step 1: Connect to MongoDB
-client = MongoClient("mongodb://myUserAdmin:password@HOSTNAME:NODEPORT")
+client = MongoClient("mongodb://Username:password@HOSTNAME:NODEPORT")
 db=client.newdb
 #Step 2: Create sample data
 names = ['Kitchen','Animal','State', 'Tastey', 'Big','City','Fish', 'Pizza','Goat', 'Salty','Sandwich','Lazy', 'Fun']
