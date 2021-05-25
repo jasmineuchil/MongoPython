@@ -6,9 +6,11 @@ col = db["newcollection"]
 oldval = { "name": "Jas", "address": "Highway 37", "State": "Karnataka", "Country": "India" }
 newvalues = { "$set": { "address": "Canyon 123" } }
 #print before the update:
+print("Before Update \n")
 for x in col.find():
   print(x)
 col.update_one(oldval, newvalues)
 #print after the update:
+print("\n After Update \n")
 for x in col.find():
   print(x)
