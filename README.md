@@ -159,7 +159,12 @@ To read data, run read.py
 To update any data in existing database, run update.py
 ```
 [root@p1213-bastion MongoPython]# python3 update.py
+Before Update
+
 {'_id': ObjectId('60ab614b6790b2680fb869eb'), 'name': 'Jas', 'address': 'Highway 37', 'State': 'Karnataka', 'Country': 'India'}
+
+After Update
+
 {'_id': ObjectId('60ab614b6790b2680fb869eb'), 'name': 'Jas', 'address': 'Canyon 123', 'State': 'Karnataka', 'Country': 'India'}
 ```
 For deletion, mention the database name in deletedatabase.py and run the script.
