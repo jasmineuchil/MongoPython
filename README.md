@@ -170,6 +170,8 @@ To check database list run `dblist.py` script
 {'name': 'config', 'sizeOnDisk': 36864.0, 'empty': False}
 {'name': 'local', 'sizeOnDisk': 73728.0, 'empty': False}
 {'name': 'newdb', 'sizeOnDisk': 139264.0, 'empty': False}
+{'name': 'newdatabase', 'sizeOnDisk': 148790.0, 'empty': False}
+
 [root@p1213-bastion MongoPython]#
 ```
 
