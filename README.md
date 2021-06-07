@@ -1,5 +1,7 @@
 ## MongoPython
 
+This repository contains Python application which uses MongoDB and performs CRUD operations using Redhat Openshift.
+
 # Helm installation
 
 For Helm installation please refer https://github.com/redhat-developer/redhat-helm-charts/tree/master/stable/ibm-mongodb-enterprise-helm
@@ -40,7 +42,10 @@ cd MongoPython
 ```
 After cloning the repository to your system, Update username, password, hostname and port number for all the `.py` scripts
 
-To install pymongo, make sure you have installed python3 (along with PIP) and then `import pymongo`
+## Deploy your Application to RedHAt Openshift
+
+
+To install pymongo in your Openshift system, make sure you have installed python3 (along with PIP) and then `import pymongo`
 
 Run python script `pythoncode.py` which will create a sample data
 
@@ -109,19 +114,6 @@ To check server status, run `ServerStatusResult.py` script
                 'uri': 'statistics:'}}
 ```
 
-## Database list
-
-To check database list run `dblist.py` script
-```
-[root@p1213-bastion MongoPython]# python3 dblist.py
-{'name': 'admin', 'sizeOnDisk': 167936.0, 'empty': False}
-{'name': 'business', 'sizeOnDisk': 73728.0, 'empty': False}
-{'name': 'config', 'sizeOnDisk': 36864.0, 'empty': False}
-{'name': 'local', 'sizeOnDisk': 73728.0, 'empty': False}
-{'name': 'newdb', 'sizeOnDisk': 139264.0, 'empty': False}
-[root@p1213-bastion MongoPython]#
-```
-
 ## You can perform create, read, update and delete operation by running below scripts
 
 To create database and add data, run create.py scripts
@@ -167,6 +159,21 @@ After Update
 
 {'_id': ObjectId('60ab614b6790b2680fb869eb'), 'name': 'Jas', 'address': 'Canyon 123', 'State': 'Karnataka', 'Country': 'India'}
 ```
+
+## Database list
+
+To check database list run `dblist.py` script
+```
+[root@p1213-bastion MongoPython]# python3 dblist.py
+{'name': 'admin', 'sizeOnDisk': 167936.0, 'empty': False}
+{'name': 'business', 'sizeOnDisk': 73728.0, 'empty': False}
+{'name': 'config', 'sizeOnDisk': 36864.0, 'empty': False}
+{'name': 'local', 'sizeOnDisk': 73728.0, 'empty': False}
+{'name': 'newdb', 'sizeOnDisk': 139264.0, 'empty': False}
+[root@p1213-bastion MongoPython]#
+```
+
+
 For deletion, mention the database name in deletedatabase.py and run the script.
 ```
 [root@p1213-bastion MongoPython]# python3 deletedatabase.py
