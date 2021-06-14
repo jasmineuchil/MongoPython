@@ -5,9 +5,9 @@ from random import randint
 client = MongoClient("mongodb://Username:password@HOSTNAME:NODEPORT")
 db=client.newdb
 #Step 2: Create sample data
-names = ['Kitchen','Animal','State', 'Tastey', 'Big','City','Fish', 'Pizza','Goat', 'Salty','Sandwich','Lazy', 'Fun']
+names = ['Spoon','Tree','Country', 'Delecious', 'Large','City','Pond', 'Mozzarella','Elephant', 'Salty','Burger','Energetic', 'Funny']
 company_type = ['LLC','Inc','Company','Corporation']
-company_cuisine = ['Pizza', 'Bar Food', 'Fast Food', 'Italian', 'Mexican', 'American', 'Sushi Bar', 'Vegetarian']
+company_cuisine = ['Pizza', 'Indian', 'Indonesian', 'Italian', 'Mexican', 'American', 'Japanese', 'Vegetarian']
 for x in range(1, 100):
     business = {
         'name' : names[randint(0, (len(names)-1))] + ' ' + names[randint(0, (len(names)-1))]  + ' ' + company_type[randint(0, (len(company_type)-1))],
