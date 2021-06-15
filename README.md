@@ -1,6 +1,9 @@
 ## MongoPython
 
-This repository contains Python application which uses MongoDB and performs CRUD operations using Redhat Openshift.
+In this, we will create a Python application, using PyMongo, that creates a MongoDB database and then you can retrieve data from the collection.
+With MongoDB and Python, we can develop many different types of database applications quickly. MongoDB provides an official Python driver called PyMongo.
+
+Here we will perform CRUD operations by creating random 100 business reviews and giving ratings which will demonstrate the flexibility and power of MongoDB and its great Python support.
 
 # Helm installation
 
@@ -47,7 +50,10 @@ After cloning the repository to your system, Update username, password, hostname
 
 To install pymongo in your Openshift system, make sure you have installed python3 (along with PIP) and then `import pymongo`
 
-Run python script `pythoncode.py` which will create a sample data
+## Performing CRUD operations : Working With Databases, Collections, and Documents
+
+Now let's perform CRUD operation by creating a sample data of random 100 business reviews and giving ratings randomly.
+To establish a connection to a database, we need to create a MongoClient instance and then we create a database and collections and then feed a data into it by running python script `create.py` which will create a sample data
 
 To validate, login to the container
 ```
@@ -87,12 +93,61 @@ MongoDB Enterprise > db.reviews.find().count()
 100
 MongoDB Enterprise >
 ```
-## Server Status Result
 
-To check server status, run `ServerStatusResult.py` script
+To read the data from collection we use find() command , run read.py script. It returns all the data
+```
+[root@p1213-bastion MongoPython]# python3 read.py
+{'_id': ObjectId('60c82c8daf5d3cd46b0eac51'), 'name': 'Mozzarella City Company', 'rating': 3, 'cuisine': 'Pizza'}
+{'_id': ObjectId('60c82c8eaf5d3cd46b0eac52'), 'name': 'Pond Salty Company', 'rating': 2, 'cuisine': 'Pizza'}
+{'_id': ObjectId('60c82c8eaf5d3cd46b0eac53'), 'name': 'Energetic Delecious Corporation', 'rating': 5, 'cuisine': 'Pizza'}
+{'_id': ObjectId('60c82c8eaf5d3cd46b0eac54'), 'name': 'City Large Company', 'rating': 3, 'cuisine': 'American'}
+...
 
 ```
-[root@p1213-bastion MongoPython]# python3 serverstatusresult.py
+
+To update all documents that meets the criteria of the query, Run update.py which will run existing database which will update all the data which has cuisine : "Vegetarian" and it will change the name to "Spoon Delecious Company"
+
+```
+[root@p1213-bastion MongoPython]# python3 update.py
+Before Update
+...
+{'_id': ObjectId('60c82c8eaf5d3cd46b0eac5d'), 'name': 'Pond Energetic Corporation', 'rating': 2, 'cuisine': 'Vegetarian'}
+{'_id': ObjectId('60c82c8eaf5d3cd46b0eac5e'), 'name': 'City Delecious LLC', 'rating': 5, 'cuisine': 'Vegetarian'}
+...
+
+After Update
+...
+{'_id': ObjectId('60c82c8eaf5d3cd46b0eac5d'), 'name': 'Spoon Delecious Company', 'rating': 2, 'cuisine': 'Vegetarian'}
+{'_id': ObjectId('60c82c8eaf5d3cd46b0eac5e'), 'name': 'Spoon Delecious Company', 'rating': 5, 'cuisine': 'Vegetarian'}
+...
+```
+
+## Database list
+
+You can check database list by running `dblist.py` script
+```
+[root@p1213-bastion MongoPython]# python3 dblist.py
+{'name': 'admin', 'sizeOnDisk': 167936.0, 'empty': False}
+{'name': 'business', 'sizeOnDisk': 73728.0, 'empty': False}
+{'name': 'config', 'sizeOnDisk': 36864.0, 'empty': False}
+{'name': 'local', 'sizeOnDisk': 73728.0, 'empty': False}
+{'name': 'newdb', 'sizeOnDisk': 139264.0, 'empty': False}
+
+[root@p1213-bastion MongoPython]#
+```
+
+
+For deletion, you can delete the database by mentioning the database name in deletedatabase.py and run the script.
+```
+[root@p1213-bastion MongoPython]# python3 deletedatabase.py
+Database deleted
+```
+## Server Status Result
+
+To check server status, run `serverstatus.py` script
+
+```
+[root@p1213-bastion MongoPython]# python3 serverstatus.py
 {'asserts': {'msg': 0, 'regular': 0, 'rollovers': 0, 'user': 14, 'warning': 0},
  'connections': {'active': 2,
                  'available': 838856,
@@ -112,72 +167,4 @@ To check server status, run `ServerStatusResult.py` script
                                 'transactions rolled back': 1112,
                                 'update conflicts': 0},
                 'uri': 'statistics:'}}
-```
-
-## You can perform create, read, update and delete operation by running below scripts
-
-To create database and add data, run create.py scripts
-```
-[root@p1213-bastion MongoPython]# python3 create.py
-Database created successfully
-```
-
-You can login to container to validate it:
-```
-[root@p1213-bastion cecuser]# oc rsh test-ibm-mongodb-enterprise-helm-deployment-d6c8b784c-zlxkh
-sh-4.4$ mongo -u myUserAdmin -p password
-...
-MongoDB Enterprise > show dbs
-admin         0.000GB
-business      0.000GB
-config        0.000GB
-local         0.000GB
-newdb         0.000GB
-newdatabase   0.000GB
-MongoDB Enterprise > use newdatabase
-switched to db newdatabase
-MongoDB Enterprise > show collections
-newcollection
-MongoDB Enterprise > db.newcollection.find().
-{ "_id" : ObjectId("60ab614b6790b2680fb869eb"), "name" : "Jas", "address" : "Canyon 123", "State" : "Karnataka", "Country" : "India" }
-```
-
-To read data, run read.py
-```
-[root@p1213-bastion MongoPython]# python3 read.py
-{'_id': ObjectId('60ab614b6790b2680fb869eb'), 'name': 'Jas', 'address': 'Canyon 123', 'State': 'Karnataka', 'Country': 'India'}
-```
-
-To update any data in existing database, run update.py
-```
-[root@p1213-bastion MongoPython]# python3 update.py
-Before Update
-
-{'_id': ObjectId('60ab614b6790b2680fb869eb'), 'name': 'Jas', 'address': 'Highway 37', 'State': 'Karnataka', 'Country': 'India'}
-
-After Update
-
-{'_id': ObjectId('60ab614b6790b2680fb869eb'), 'name': 'Jas', 'address': 'Canyon 123', 'State': 'Karnataka', 'Country': 'India'}
-```
-
-## Database list
-
-To check database list run `dblist.py` script
-```
-[root@p1213-bastion MongoPython]# python3 dblist.py
-{'name': 'admin', 'sizeOnDisk': 167936.0, 'empty': False}
-{'name': 'business', 'sizeOnDisk': 73728.0, 'empty': False}
-{'name': 'config', 'sizeOnDisk': 36864.0, 'empty': False}
-{'name': 'local', 'sizeOnDisk': 73728.0, 'empty': False}
-{'name': 'newdb', 'sizeOnDisk': 139264.0, 'empty': False}
-{'name': 'newdatabase', 'sizeOnDisk': 148790.0, 'empty': False}
-
-[root@p1213-bastion MongoPython]#
-```
-
-
-For deletion, mention the database name in deletedatabase.py and run the script.
-```
-[root@p1213-bastion MongoPython]# python3 deletedatabase.py
-Database deleted
 ```
