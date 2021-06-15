@@ -94,7 +94,7 @@ MongoDB Enterprise > db.reviews.find().count()
 MongoDB Enterprise >
 ```
 
-To read the data from collection we use find() command , run read.py script. It returns all the data
+To read the data from collection we use find() command , run read.py script it returns all the data
 ```
 [root@p1213-bastion MongoPython]# python3 read.py
 {'_id': ObjectId('60c82c8daf5d3cd46b0eac51'), 'name': 'Mozzarella City Company', 'rating': 3, 'cuisine': 'Pizza'}
