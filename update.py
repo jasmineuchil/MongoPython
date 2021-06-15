@@ -1,10 +1,11 @@
 from pymongo import MongoClient
 client = MongoClient("mongodb://Username:password@HOSTNAME:NODEPORT")
 #Go to the database which is already created
-db = client["newdatabase"]
-col = db["newcollection"]
-oldval = { "name": "Jas", "address": "Highway 37", "State": "Karnataka", "Country": "India" }
-newvalues = { "$set": { "address": "Canyon 123" } }
+db = client["newdb"]
+col = db["reviews"]
+#We are updating the name to " Spoon Delecious Company" for Vegetarian cuisine
+oldval = { "cuisine": "Vegetarian" }
+newvalues = { "$set": { "name": "Spoon Delecious Company" } }
 #print before the update:
 print("Before Update \n")
 for x in col.find():
