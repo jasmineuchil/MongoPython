@@ -36,7 +36,15 @@ test-ibm                                   NodePort       172.30.22.77     <none
 test-ibm-mongodb-enterprise-helm-service   ClusterIP      172.30.78.82     <none>        27017/TCP                                                                                                   85m
 ```
 
-Git clone this repository on your server -
+
+
+## Deploy your Application to RedHAt Openshift
+
+To start using PyMongo, first we need to install Python environment in OCP. Either you can use your system-wide Python installation or you can build new python app.
+
+To install pymongo in your Openshift system, make sure you have installed python3 (along with PIP) Or you can even build python app using `oc new-app` and validate if pod is created successfully by using `oc get pod` command
+
+Git clone this repository on your server or your python pod-
 
 ```
 cd $HOME/
@@ -44,11 +52,6 @@ git clone https://github.com/jasmineuchil/MongoPython
 cd MongoPython
 ```
 After cloning the repository to your system, Update username, password, hostname and port number for all the `.py` scripts
-
-## Deploy your Application to RedHAt Openshift
-
-
-To install pymongo in your Openshift system, make sure you have installed python3 (along with PIP) and then `import pymongo`
 
 ## Performing CRUD operations : Working With Databases, Collections, and Documents
 
