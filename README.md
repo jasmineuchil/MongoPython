@@ -53,7 +53,7 @@ cd MongoPython
 ```
 After cloning the repository to your system, Update username, password, hostname and port number for all the `.py` scripts
 
-## Performing CRUD operations : Working With Databases, Collections, and Documents
+## Performing CRUD operations : Working With Databases, Collections and Data
 
 Now let's perform CRUD operation by creating a sample data of random 100 business reviews and giving ratings randomly.
 To establish a connection to a database, we need to create a MongoClient instance and then we create a database and collections and then feed a data into it by running python script `create.py` which will create a sample data
